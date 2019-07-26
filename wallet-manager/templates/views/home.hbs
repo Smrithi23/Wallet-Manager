@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    #header {
+        background-color: #55b897;
+        color: #ffffff;
+        height: 60px;
+        position: relative;
+    }
+    #splitwise {
+        position: absolute;
+        font-size: 30;
+        top: 10px;
+        left: 20px;
+    }
+
+    #welcome {
+        position: absolute;
+        font-size: 20;
+        top: 20px;
+        right: 150px;
+    }
+
+    #options {
+        background-color: #a5dac8;
+        height: 50px;
+    }
+
+    #b1,
+    #b2,
+    #changeProfile {
+        background-color: transparent !important;
+        border: 0 none;
+        color: #ffffff;
+        font-size: 18;
+    }
+    .button {
+        background-color: #55b897;
+        color: #ffffff;
+        border: 0 none;
+        font-size: 30;
+        height: 100px;
+        width: 800px
+    }
+    table {
+        position: absolute;
+        left: 530px;
+        top: 200px;
+    }
+    #total {
+        position: absolute;
+        left: 600px;
+        top: 130px;
+        color: #2f6956;
+    }
+    #add {
+        position: absolute;
+        left: 50px;
+        top: 70px;
+        background-color: transparent !important;
+        border: 0 none;
+        color: #ffffff;
+        font-size: 20;
+    }
+</style>
+
+<body>
+    <header id="header">
+        <div id="splitwise">
+            Splitwise
+        </div>
+        <div id="welcome">
+            Welcome {{user.name}}
+        </div>
+    </header>
+    <form method="get" action="/users/addexpense">
+    <input id="add" type="submit" value="Add Expense">
+   </form>
+    <div id="options">
+        <form id="logout" method="post" action="/users/logout">
+            <input id="b1" type="submit" value="Logout" />
+        </form>
+        <form id="logoutAll" method="post" action="/users/logoutAll">
+            <input id="b2" type="submit" value="Logout from all sessions" />
+        </form>
+        <form method="get" action="/users/me">
+            <input id="changeProfile" type="submit" value="Change Profile" />
+        </form>
+    </div>
+    <div>
+        <table>
+            <div id="total">
+                <br>
+                Total Expense: {{total}}
+                <br>
+            </div>
+            <div id="expenses">
+                {{#each user.expenses}}
+                <tr>
+                    <td>
+                        <form method="get" action="/expenses/{{this._id}}">
+                            <input class="button" type="submit" value="{{this.title}}">
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </div>
+        </table>
+    </div>
+</body>
+
+</html>

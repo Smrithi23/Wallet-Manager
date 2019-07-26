@@ -1,0 +1,131 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Update Expense</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    #header {
+        background-color: #55b897;
+        color: #ffffff;
+        height: 60px;
+        position: relative;
+    }
+    #splitwise {
+        position: absolute;
+        font-size: 30;
+        top: 10px;
+        left: 20px;
+    }
+
+    #welcome {
+        position: absolute;
+        font-size: 20;
+        top: 20px;
+        right: 150px;
+    }
+
+    #options {
+        background-color: #a5dac8;
+        height: 50px;
+    }
+
+    #b1,
+    #b2,
+    #changeProfile {
+        background-color: transparent !important;
+        border: 0 none;
+        color: #ffffff;
+        font-size: 18;
+    }
+    #back {
+        background-color: transparent !important;
+        border: 0 none;
+        color: #ffffff;
+        font-size: 20;
+        position: absolute;
+        left: 30px;
+        top: 75px;
+    }
+    input[type=text] {
+        background-color: transparent !important;
+        border: 0 none;
+        font-size: 20;
+        color: #398068;
+    }
+    #update {
+        border: 0 none;
+        font-size: 20;
+        background-color: #398068;
+        color: #ffffff;
+        height: 50px;
+        width: 100px
+    }
+    #delete {
+        position: absolute;
+        top: 450px;
+        left: 850px;
+        border: 0 none;
+        font-size: 20;
+        background-color: #398068;
+        color: #ffffff;
+        height: 50px;
+        width: 100px
+    }
+    #message {
+        color: #357761;
+        position: absolute;
+        top: 800px;
+        width: 1853px;
+        text-align: center;
+    }
+    #updateExpenseForm {
+    position: absolute;
+    top:200px;
+    left: 850px;
+    font-size: 20;
+    color: #398068;
+}
+</style>
+<body>
+    <div id="message">
+        {{message}}
+    </div>
+    <header id="header">
+        <div id="splitwise">
+            Splitwise
+        </div>
+        <div id="welcome">
+            Welcome {{user.name}}
+        </div>
+    </header>
+    <div id="options">
+        <form id="logout" method="post" action="/users/logout">
+            <input id="b1" type="submit" value="Logout" />
+        </form>
+        <form id="logoutAll" method="post" action="/users/logoutAll">
+            <input id="b2" type="submit" value="Logout from all sessions" />
+        </form>
+        <form method="get" action="/users/me">
+            <input id="changeProfile" type="submit" value="Change Profile" />
+        </form>
+    </div>
+    <form id="updateExpenseForm" method="post" action="/expenses/{{expense._id}}">
+        Title:
+        <input type="text" name="title" value="{{expense.title}}" required><br>
+        Description:
+        <input type="text" name="description" value="{{expense.description}}" required><br>
+        Expense:
+        <input type="text" name="cost" value="{{expense.cost}}" required><br>
+        <input id="update" type="submit" value="Update" />
+    </form>
+    <form method="post" action="/expense/{{expense._id}}">
+        <input id="delete" type="submit" value="Delete"/>
+    </form>
+    <form method="get" action="/users">
+        <input id="back" type="submit" value="Back">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+    <meta charset="UTF-8" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    #header {
+        background-color: #55b897;
+        color: #ffffff;
+        height: 60px;
+        position: relative;
+        font-size: 30px
+    }
+
+    #splitwise {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    }
+    body {
+        color: #417e69;
+    }
+    .button {
+        background-color: #4a9178;
+        color: #ffffff;
+        font-size: 18px;
+        height: 40px;
+        width: 100px;
+        border: 0 none;
+    }
+    input {
+        color: #4a9178;
+    }
+    #loginerror {
+        position: absolute;
+        top: 800px;
+        width: 1853px;
+        text-align: center;
+        color: #026670;
+        font-size: 20;
+    }
+
+    #error {
+        position: absolute;
+        top: 800px;
+        width: 1853px;
+        text-align: center;
+        color: #026670;
+        font-size: 20;
+    }
+</style>
+<body>
+    <div id="error">
+        {{message}}
+        {{register}}
+        {{email}}<br>
+        {{password}}
+    </div>
+    <div id="loginerror">
+        {{loginerror}}
+    </div>
+    <header id="header">
+        <div id="splitwise">
+            Splitwise
+        </div>
+    </header>
+    <form id="form-login" method="post" action="/users/login">
+        <h2>Login</h2>
+        Email:<br>
+        <input type="text" name="email" required><br>
+        Password:<br>
+        <input type="password" name="password" required><br>
+        <input class="button" type="submit" value="Login" />
+    </form>
+    <form id="form-register" method="post" action="/users">
+        <h2>Register</h2>
+        Email:<br>
+        <input type="text" name="email" required><br>
+        Name:<br>
+        <input type="text" name="name" required><br>
+        Password:<br>
+        <input type="password" name="password" required><br>
+        <input class="button" type="submit" value="Register" />
+    </form>
+
+</body>
+
+</html>

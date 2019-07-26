@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+</head>
+<style>
+    #header {
+        background-color: #55b897;
+        color: #ffffff;
+        height: 60px;
+        position: relative;
+    }
+
+    #splitwise {
+        position: absolute;
+        font-size: 30;
+        top: 10px;
+        left: 20px;
+    }
+
+    #welcome {
+        position: absolute;
+        font-size: 20;
+        top: 20px;
+        right: 150px;
+    }
+
+    #options {
+        background-color: #a5dac8;
+        height: 50px;
+    }
+
+    #b1,
+    #b2,
+    #changeProfile {
+        background-color: transparent !important;
+        border: 0 none;
+        color: #ffffff;
+        font-size: 18;
+    }
+
+    #back {
+        background-color: transparent !important;
+        border: 0 none;
+        color: #ffffff;
+        font-size: 20;
+        position: absolute;
+        left: 30px;
+        top: 75px;
+    }
+
+    #form {
+        position: absolute;
+        font-size: 20;
+        color: #357761;
+        top: 200px;
+        width: 1853px;
+        text-align: center;
+    }
+
+    #add {
+        background-color: #357761;
+        border: 0 none;
+        font-size: 20;
+        color: #ffffff;
+        height: 40px;;
+        width: 150px;
+    }
+
+    input[type=text] {
+        border: 0;
+        outline: 0;
+        border-bottom: 2px solid #357761;
+        font-size: 20;
+    }
+    #message {
+        color: #357761;
+        position: absolute;
+        top: 800px;
+        width: 1853px;
+        text-align: center;
+
+        
+    }
+</style>
+<body>
+    <div id="message">
+        {{message}}
+    </div>
+    <header id="header">
+        <div id="splitwise">
+            Splitwise
+        </div>
+        <div id="welcome">
+            Welcome {{user.name}}
+        </div>
+    </header>
+    <div id="options">
+        <form id="logout" method="post" action="/users/logout">
+            <input id="b1" type="submit" value="Logout" />
+        </form>
+        <form id="logoutAll" method="post" action="/users/logoutAll">
+            <input id="b2" type="submit" value="Logout from all sessions" />
+        </form>
+        <form method="get" action="/users/me">
+            <input id="changeProfile" type="submit" value="Change Profile" />
+        </form>
+    </div>
+    <form method="get" action="/users">
+        <input id="back" type="submit" value="Back">
+    </form>
+    <form id="form" method="post" action="/expenses">
+        Title:
+        <input type="text" name="title" required><br>
+        Description:
+        <input type="text" name="description" required><br>
+        Expense:
+        <input type="text" name="cost" required><br>
+        <input id="add" type="submit" value="Add Expense"/>
+    </form>
+</body>
+
+</html>

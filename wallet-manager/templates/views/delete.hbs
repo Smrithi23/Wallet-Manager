@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+     <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    #header {
+        background-color: #55b897;
+        color: #ffffff;
+        height: 60px;
+        position: relative;
+    }
+
+    #splitwise {
+        position: absolute;
+        font-size: 30;
+        top: 10px;
+        left: 20px;
+    }
+
+    #welcome {
+        position: absolute;
+        font-size: 20;
+        top: 20px;
+        right: 150px;
+    }
+    #back {
+        background-color: transparent !important;
+        border: 0 none;
+        color: #ffffff;
+        font-size: 20;
+        position: absolute;
+        left: 30px;
+        top: 75px;
+    }
+    #options {
+        background-color: #a5dac8;
+        height: 50px;
+    }
+    #message {
+        color:#55b897;
+        font-size: 30;
+        position: absolute;
+        top: 300px;
+        width: 1853px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div id="message">
+        {{message}}
+    </div>
+    <header id="header">
+        <div id="splitwise">
+            Splitwise
+        </div>
+        <div id="welcome">
+            Welcome {{user.name}}
+        </div>
+    </header>
+    <div id="options">
+        <form method="get" action="/users">
+        <input id="back" type="submit" value="Back">
+    </form>
+    </div>
+</body>
+
+</html>
