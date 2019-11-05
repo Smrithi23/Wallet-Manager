@@ -19,7 +19,7 @@
     "http": "0.0.0",
     "jsonwebtoken": "^8.4.0",
     "mongodb": "^3.1.10",
-    "mongoose": "^5.3.16",
+    "mongoose": "^5.7.5",
     "request": "^2.88.0",
     "validator": "^10.8.0"
   },
